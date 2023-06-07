@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Especies</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<style>
+  #divBase {max-height: 500px;overflow: auto;}
+</style>
+<script type="text/javascript" src="/Kernel0/lib/prototype.js"></script>
+<script type="text/javascript" src="/Kernel0/lib/libBase64.js"></script>
+<script type="text/javascript" src="/Kernel0/lib/bootstrap_prototype.js"></script>
+<script type="text/javascript" src="/Kernel0/js/k0_comun.js"></script>
+<script type="text/javascript" src="js/FdC_Especies.js"></script>
+</head>
+<body onload="javascript:hookInitPag()">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img alt="Brand" type="image/svg+xml" src="ico/logoReto.svg" width="40px"></a>
+      <span id="fuente" class="navbar-brand">Buscar en: Wikipedia (es)</span>
+    </div>
+
+   <div class="collapse navbar-collapse" id="collapse-1">
+   
+    <ul class="nav navbar-nav navbar-right">
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Listas <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="javascript:nuevaLista()">Nueva lista</a></li>
+            <li><a href="javascript:plantList()">Plantas</a></li>
+            <li><a href="javascript:fungiList()">Hongos</a></li>
+          </ul>
+      </li>
+
+      <li>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+         <span class="fa fa-bars">&nbsp;<span class="caret"></span>
+       </a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-menu-title"><span>Buscar en:</span></li>
+          <li><a href="javascript:showEspecies('WIKI_ES')"> Wikipedia (es)</a></li>
+          <li><a href="javascript:showEspecies('WIKI_EN')"> Wikipedia (en)</a></li>
+          <li><a href="javascript:showEspecies('WIKISPP')"> Wikispecies</a></li>
+          <li><a href="javascript:showEspecies('R_TORMO')"> Plantas y Hongos</a></li>
+          <li><a href="javascript:showEspecies('JBOTUMA')"> JB Univ. Málaga</a></li>
+          <li><a href="javascript:showEspecies('FLOVASC')"> Flora vascular</a></li>
+          <li><a href="javascript:showEspecies('FLOSILV')"> Flora silvestre</a></li>
+          <li><a href="javascript:showEspecies('PYRENEA')"> Flora Pirineos</a></li>
+          <li><a href="javascript:showEspecies('EOFLIFE')"> Encyclop. of Life</a></li>
+          <li><a href="javascript:showEspecies('JSTORGP')"> JSTOR Global Plants</a></li>
+          <li><a href="javascript:showEspecies('IOPI_GP')"> IOPI Global Plants</a></li>
+          <li><a href="javascript:showEspecies('GBIF_GP')"> GBIF Global Biodiversity</a></li>
+          <li><a href="javascript:showEspecies('GBIF_ES')"> GBIF España</a></li>
+          <li><a href="javascript:showEspecies('HARVARD')"> Univ. Harvard</a></li>
+          <li><a href="javascript:showEspecies('CATALOG')"> Catalogue of Life</a></li>
+          <li><a href="javascript:showEspecies('TROPICO')"> TROPICOS</a></li>
+          <li><a href="javascript:showEspecies('MEDLIST')"> MED Checklist</a></li>
+          <li><a href="javascript:showEspecies('NCBINLM')"> NCBI - NLM</a></li>
+          <li><a href="javascript:showEspecies('FCATALA')"> Flora Catalana</a></li>
+          <li><a href="javascript:showEspecies('ASTUNAT')"> Astur Natura</a></li>
+          <li><a href="javascript:showEspecies('NAVARRA')"> Vegetación Navarra</a></li>
+
+          </ul>
+      </li>
+  	</ul>
+   </div>
+   </div>
+</nav>
+
+
+  <div id="divBase"></div>
+  <div id="divList" style="display:none;float:left;margin:100px;width: 400px">
+    <form action="javascript:trataTexto()">
+    <textarea id="texto" class="form-element"></textarea><br>
+    <input type="submit" class="btn btn-success" value="Crear lista">
+    </form>
+  </div>
+
+
+</body>
+</html>

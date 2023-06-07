@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Setas</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<style>
+ #divBase   {position:absolute;top:85px;left:10px;width:1050px;height:600px;}
+.divDrag { position:absolute;width:auto; background:white;cursor:pointer;width:120px; }
+.divDrag { font-size:1.0em; padding:8px ;text-align:center}
+.divDrag { border:3px solid gray; border-radius: 8px;-webkit-border-radius: 8px;}
+
+.tapaModal {position:absolute;left:0px;top:0px;width:100%;height:100%;background-color: rgba(255, 255, 255, 0.35);}
+
+</style>
+<script type="text/javascript" src="/Kernel0/lib/prototype.js"></script>
+<script type="text/javascript" src="/Kernel0/lib/libBase64.js"></script>
+<script type="text/javascript" src="/Kernel0/lib/bootstrap_prototype.js"></script>
+<script type="text/javascript" src="/Kernel0/js/k0_comun.js"></script>
+<script type="text/javascript" src="/Kernel0/js/objK0_DivsDnD.js"></script>
+<script type="text/javascript" src="/Kernel0/js/objK0_EditNodo.js"></script>
+<script type="text/javascript" src="/Kernel0/js/objK0_Conjt.js"></script>
+<script type="text/javascript" src="/Kernel0/js/objK0_Arbol.js"></script>
+<script type="text/javascript" src="/Kernel0/js/libK0_Password.js"></script>
+<script type="text/javascript" src="js/frm4A_Taxon.js"></script>
+<script type="text/javascript" src="js/floraGrupo.js"></script>
+</head>
+<body onload="javascript:hookInitPag('SETAS')">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img alt="Brand" type="image/svg+xml" src="ico/logoReto.svg" width="40px"></a>
+      <span class="navbar-brand">Flora Capolat - Setas</span>
+    </div>
+
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+    <ul class="nav navbar-nav navbar-right">
+
+      <li>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			   <i class="fa fa-user"></i> <span id="nomUsr">Usuario</span> <i class="fa fa-caret-down"></i>
+		   </a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-menu-title"><span>Ajustes</span></li>
+								<li><a href="javascript:hookCambiaPassword()"><i class="fa fa-key"></i> Cambiar password</a></li>
+								<li><a href="javascript:cierraSesion()"><i class="fa fa-sign-out"></i> Cierra sesión</a></li>
+							</ul>
+		</li>
+      <li>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			   <span class="fa fa-bars">&nbsp;<span class="caret"></span>
+		   </a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-menu-title">
+ 									<span>Vista</span>
+								</li>
+								<li><a href="javascript:vistaEdit()"><i class="fa fa-pencil"></i> Editar</a></li>
+								<li><a href="javascript:vistaFoto()"><i class="fa fa-photo"></i> Iconos</a></li>
+								<li><a href="javascript:vistaNote()"><i class="fa fa-book"></i> Notas</a></li>
+								<li><a href="javascript:vistaTree()"><i class="fa fa-tree"></i> Arbol</a></li>
+							</ul>
+      </li>
+
+	</ul>
+          <form id="frmEdit" class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="button" value="+Tema" class="btn btn-success" onclick="javascript:addNodoTema()">
+              <input type="button" value="Grabar" class="btn btn-success" onclick="javascript:hookGrabaGrupo()">
+            </div>
+          </form>
+   </div>
+   </div>
+</nav>
+
+
+        <div id="navbar" class="navbar-collapse collapse">
+        </div><!--/.navbar-collapse -->
+  <div id="divBase"></div>
+
+</body>
+</html>

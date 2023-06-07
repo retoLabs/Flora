@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<title>Dashboard</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<style>
+.tapaModal {position:absolute;left:0px;top:0px;width:100%;height:100%;background-color: rgba(255, 255, 255, 0.35);}
+.formModal {position:absolute;left:0;top:0;right:0;bottom:0;margin: auto;overflow:auto;}
+.formModal { border:1px solid gray; border-radius: 8px;-webkit-border-radius: 8px;}
+.formModal {background-color:#aac}
+
+.divDashb,.divDashb2 {position:relative;float:left;width:auto;background-color:white;}
+.divDashb {margin-left:100px;}
+.divDashb2 {margin-left:60px;}
+.divDashb img,.divDashb2 img {display:block;}
+.superp {position:absolute;left:50px;top:50px;}
+</style>
+<script type="text/javascript" src="/Kernel0/lib/prototype.js"></script>
+<script type="text/javascript" src="/Kernel0/lib/libBase64.js"></script>
+<script type="text/javascript" src="/Kernel0/lib/bootstrap_prototype.js"></script>
+<script type="text/javascript" src="/Kernel0/js/k0_comun.js"></script>
+<script type="text/javascript" src="/Kernel0/js/k0_sesion.js"></script>
+<script type="text/javascript" src="/Kernel0/js/objK0_Arbol.js"></script>
+<script type="text/javascript" src="/Kernel0/js/objK0_MList.js"></script>
+<script type="text/javascript" src="js/FdC_mkArbolTaxon.js"></script>
+<script type="text/javascript" src="js/FdC_Forms.js"></script>
+<script type="text/javascript" src="js/FdC_Admin.js"></script>
+<script type="text/javascript" src="js/FdC_Dashboard.js"></script>
+
+</head>
+<body onload="hookInitPag()">
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"><img alt="Brand" type="image/svg+xml" src="ico/logoReto.svg" width="40px"></a>
+    </div>
+   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+   
+    <ul class="nav navbar-nav navbar-right">
+          <li>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			   <span class="fa fa-dashboard"></span> Administrar <span class="caret"></span>
+		   </a>
+			<ul class="dropdown-menu">
+				<li><a href="javascript:hookAdminUsers()"><i class="fa fa-user"></i> Usuarios</a></li>
+			</ul>
+		</li>
+
+      <li>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			   <i class="fa fa-user"></i> <span id="nomUsr">Usuario</span> <i class="fa fa-caret-down"></i>
+		   </a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-menu-title"><span>Ajustes</span></li>
+								<li><a href="javascript:hookCambiaPassword()"><i class="fa fa-key"></i> Cambiar password</a></li>
+								<li><a href="javascript:cierraSesion()"><i class="fa fa-sign-out"></i> Cierra sesión</a></li>
+							</ul>
+		</li>
+      <li>
+          <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			   <span class="fa fa-bars">&nbsp;<span class="caret"></span>
+		   </a>
+							<ul class="dropdown-menu">
+								<li class="dropdown-menu-title">
+ 									<span>Temas</span>
+								</li>
+								<li><a href="javascript:hookAdminEspecies()"><i class="fa fa-tree"></i> Especies</a></li>
+								<li><a href="javascript:hookAdminTaxonomia()"><i class="fa fa-sitemap"></i> Taxonomia</a></li>
+								<li><a href="javascript:hookAdminClasificacion()"><i class="fa fa-search"></i> Clasificación</a></li>
+								<li><a href="javascript:hookAdminGaleria()"><i class="fa fa-camera"></i> Galería</a></li>
+								<li><a href="javascript:hookAdminTerritorio()"><i class="fa fa-map-marker"></i> Territorio</a></li>
+							</ul>
+      </li>
+
+	</ul>
+   </div>
+   </div>
+</nav>
+
+	<ul class="breadcrumb">
+		<li>
+			<i class="icon-home"></i>
+			<a href="FdC_Index.html">Inicio</a>&nbsp;&gt;&nbsp;
+			<a href="FdC_Login.html">Login</a>&nbsp;&gt;&nbsp;
+			<a href="">Dashboard</a>&nbsp;&gt;&nbsp;
+			<i class="icon-angle-right"></i>
+		</li>
+	</ul>
+
+<div id="navbar" class="navbar-collapse collapse">
+	<span id="nbBrand" class="navbar-brand">&nbsp;</span>
+   	<form id="frmAltas" class="navbar-form navbar-left" style="display:none">
+			<div class="form-group">
+				<input type="button" value="Nuevo" class="btn btn-success" onclick="javascript:hookAltaFilaAleph()">
+				<input id="btnSalva" type="button" value="Salva" class="btn btn-primary" onclick="javascript:hookSaveFilasAleph()">
+			</div>
+		</form>
+</div><!--/.navbar-collapse -->
+
+<div id="divBase"></div>
+</body>
+</html>

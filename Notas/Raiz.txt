@@ -1,0 +1,40 @@
+Sus funciones:
+	Sostén de la planta.
+	Absorción de nutrientes.
+	Conducción de sustancias.
+	Reproducción vegetativa.
+	Almacenamiento de sustancias de reserva.
+
+Formas:
+	Axonomorfa (pivotante,fusiforme)
+		Gimnospermas
+		Dicotiledóneas
+	Fasciculado (fibrosas,difusas)
+		Monocotiledóneas
+
+	Modificadas
+		Neumatóforos
+		Zancos o raíces fúlcreas
+		Adherentes
+		Columnares
+		Tabulares
+		Chupadoras o haustorios
+
+Partes:
+	Zona apical
+		Meristemo apical
+		Cofia o caliptra
+			Columnela (sensor de gravedad)
+	Zona de elongación
+	Zona de maduración
+		Pelos radicales
+
+Sección
+	Rizodermis (~epidermis)
+	Hipodermis (xerófitas)
+	Periciclo -> primordios radiculares (nuevas raices)
+	Cortex
+		Apoplastos
+		Simplastos
+	Banda de Caspari
+

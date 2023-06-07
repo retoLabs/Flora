@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Institut Cartogràfic i Geològic de Catalunya -ICGC"/>
+	<meta name="description" content="Exemple llibreria Leaflet amb geoserveis ICGC">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <style>
+      html, body, .map {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>	
+    <script src="http://rawgithub.com/kartena/Proj4Leaflet/master/lib/proj4-compressed.js" type="text/javascript"></script>
+    <script src="https://rawgithub.com/kartena/Proj4Leaflet/master/src/proj4leaflet.js" type="text/javascript"></script>
+	<script src="https://unpkg.com/togeojson@0.14.2"></script>
+	<script src="https://unpkg.com/leaflet-filelayer@0.6.0"></script>
+	<script src="js/demo_json.js"></script>
+	
+ 
+    <title>ICGC - Leaflet</title>
+  </head>
+  <body>
+ 
+    <div id="map" class="map"></div>
+    
+    <script type="text/javascript">
+      
+    var center = [42.076615, 1.751986];
+	var crs25831 = new L.Proj.CRS('EPSG:25831', 
+				'+proj=utm +zone=31 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs',
+				{
+				resolutions: [1100, 550, 275, 100, 50, 25, 10, 5, 2, 1, 0.5, 0.25]
+				}
+			);
+		
+	var serveiTopoCache = L.tileLayer.wms("http://mapcache.icc.cat/map/bases/service?", {
+		layers: 'topo',
+		format: 'image/jpeg',
+		crs: crs25831,
+		continuousWorld: true,
+		attribution: 'Institut Cartogràfic i Geològic de Catalunya -ICGC',
+	});	
+	
+	var serveiOrtoCache = L.tileLayer.wms("http://mapcache.icc.cat/map/bases/service?", {
+		layers: 'orto',
+		format: 'image/jpeg',
+		crs: crs25831,
+		continuousWorld: true,
+		attribution: 'Institut Cartogràfic i Geològic de Catalunya -ICGC',
+	});	
+	
+	var serveitopoGrisCache = L.tileLayer.wms("http://mapcache.icc.cat/map/bases/service?", {
+		layers: 'topogris',
+		format: 'image/jpeg',
+		crs: crs25831,
+		continuousWorld: true,
+		attribution: 'Institut Cartogràfic i Geològic de Catalunya -ICGC',
+	});	
+		
+	var wmsComarques = L.tileLayer.wms("http://geoserveis.icc.cat/icc_limadmin/wms/service?", {
+		layers: '5,1',
+		format: 'image/png',
+		crs: crs25831,
+		transparent: true,
+		continuousWorld: true,
+		attribution: 'Base Comarcal 1:50.000 -ICGC',
+	});
+ 
+ 
+	var map = L.map('map', {
+		layers: [serveiTopoCache,wmsComarques],
+		crs: crs25831,
+		continuousWorld: true,
+		worldCopyJump: false,
+		center: center,
+		zoom: 9,
+		});        
+		 
+	var marker1 = L.marker([42.078276, 1.752986]).addTo(map); // La rectoria
+/*
+	var marker2 = L.marker([42.083250, 1.754680]).addTo(map); // La Vila
+	var marker3 = L.marker([42.082247, 1.745711]).addTo(map); // Runers
+	var marker4 = L.marker([42.084285, 1.767683]).addTo(map); // Grages
+	var marker5 = L.marker([42.077214, 1.753124]).addTo(map); // Ca la Mestra
+	var marker6 = L.marker([42.076083, 1.751794]).addTo(map); // Cal Llengot
+	var marker7 = L.marker([42.069847, 1.747234]).addTo(map); // El Puig
+	var marker8 = L.marker([42.068677, 1.756345]).addTo(map); // Comamorera
+*/
+		var baseMaps = {
+			"Topogràfic": serveiTopoCache,
+			"Topogràfic gris": serveitopoGrisCache,
+			"Ortofoto": serveiOrtoCache
+		};
+		var overlayMaps = {
+			"Comarques": wmsComarques
+		};
+	   
+	   
+	   L.control.layers(baseMaps, overlayMaps).addTo(map);
+	   var polyline = L.polyline(ruta1, {color: 'red'}).addTo(map);
+	   
+    </script>
+  </body>
+</html>

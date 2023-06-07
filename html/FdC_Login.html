@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="device-width" content="width=1024">
+<title>RETO::Login</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+<style>
+.tapaModal {position:absolute;left:0px;top:0px;width:100%;height:100%;background-color: rgba(255, 255, 255, 0.35);}
+
+.logo {margin:20px;}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 20px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+</style>
+<script type="text/javascript" src="/Kernel0/lib/prototype.js"></script>
+<script type="text/javascript" src="/Kernel0/lib/libBase64.js"></script>
+<script type="text/javascript" src="/Kernel0/js/k0_comun.js"></script>
+<script type="text/javascript" src="/Kernel0/js/k0_sesion.js"></script>
+<script type="text/javascript" src="/Kernel0/js/libK0_Passwords.js"></script>
+<script type="text/javascript" src="js/FdC_Login.js"></script>
+</head>
+
+<body onload="javascript:initPag()">
+<img class="logo" type="image/svg+xml" src="ico/logoReto.svg" width="140px">
+<div class="container">
+
+      <form class="form-signin" id="frmLogin" action="javascript:validaPWD()" method="post">
+        <h3 class="form-signin-heading">Flora de Capolat</h3>
+        <h5 class="form-signin-heading">Administración de contenidos</h5>
+        <label for="inputEmail" class="sr-only">Usuario</label>
+        <input type="text" name="USR" class="form-control" placeholder="Usuario" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="PWD" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+      </form>
+
+    </div> <!-- /container -->
+</body>
+</html>

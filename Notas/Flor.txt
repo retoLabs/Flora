@@ -1,0 +1,76 @@
+La flor es un conjunto de antófilos y que se la considera con un eje caulinar, 
+denominado pedúnculo, más o menos reducido y de crecimiento definido, 
+que se ensancha en el extremo apical, formando el tálamo o receptáculo, 
+para dar asiento a los verticilos florales.
+Se desarrolla de una yema axilar floral.
+
+Partes (inicio)
+	Pedúnculo
+	Tálamo ó receptáculo -> verticilos florales
+		Cáliz
+			sépalos
+		Corola
+			pétalos
+		Androceo
+			estambres
+				filamento
+				antera
+					granos de polen
+		Gineceo ó pistilo
+			ovario
+			estilo
+			estigma
+
+Perianto : cáliz != corola
+Perigonio: cáliz ~~ corola (corolino|calicino)
+
+Flor completa : 4 verticilos OK (perfecta, bisexual ó hermafrodita)
+Flor incompleta : falta algún verticilo (unisexual ó incompleta)
+	Sólo estambres : estaminada
+	Sólo gineceo : pistilada
+	Ni estambres ni pistilo : neutra
+
+Planta monoica : misma planta con flores estaminadas y pistiladas por separado
+Planta dioica : diferentes plantas las flores estaminadas y pistiladas
+Planta polígama : flores unisexuales y bisexuales simultáneamente
+
+Cáliz:
+	dialisépalo (sépalos libres)
+	gamosépalo (sépalos soldados "connados")
+	marcescente (marchita pronto)
+	caduco (caedizo)
+	persistente  (se mantiene tras floración)
+	acrescente  (crece tras floración)
+	carnoso ("engorda" tras fecundación)
+
+
+Corola:
+	apétala (sin pétalos)
+	dialipétala (pétalos libres)
+	gamopétala (pétalos soldados "connados")
+
+Androceo:
+	estambres soldados
+		monadelfos (un grupo)
+		diadelfos (dos grupos)
+		poliadelfos (varios grupos)
+
+Pistilo
+	ovario :	placentacion parietal ó axilar
+	estilo
+		columnar
+		filiforme
+		bifurcado
+		ramificado
+	estigma
+		plumoso
+		capitado
+		filiforme
+		ramificado
+		sentado
+
+En botánica, el término connación hace referencia al tipo de sinorganización (“organización de lo fusionado”) en la cual las piezas florales del mismo verticilo se fusionan entre sí. Existen cuatro tipos de verticilos florales: cáliz (conjunto de sépalos), corola (conjunto de pétalos), androceo (estambres) y gineceo (carpelos). La mayoría de las flores tienen los cuatro tipos y son flores completas.1 Las partes florales pueden estar unidas con otros miembros de la misma espiral (connación) o con miembros de otros verticilos (adnación). Cuando las partes están unidas o connadas, se usa sin- o sim- ("junto"). Por ejemplo, en un cáliz aposépalo o polisepalo, los sépalos no están unidos; en un sinsépalo, si lo están.2 Entre los órganos que se hallan connados existe continuidad histológica, es decir los tejidos que forman tales órganos también están fusionados.3
+
+La formación de una connación puede ser congénita (se desarrolla durante el proceso de gestación), en la cual, si bien parecen estar fusionado, en realidad se desarrollaron como uno mismo,4 o postgénita (adquirido tardíamente en el desarrollo). La connación afecta principalmente a los pétalos, que son apopétalos (libres) o simpétalos (unidos), y los carpelos que son apocárpicos o sincárpicos. La cohesión de los estambres se encuentra con menos frecuencia, pero con frecuencia se adhieren a los pétalos, cuando se dice que son epipétalos.5
+
+La simetría horizontal de la flor depende en primer lugar del modelo de disposición o inserción de las partes del receptáculo floral. Aquí se distinguen tres tipos: (1) espiral en toda su extensión, (2) cíclica en todo, es decir, con todas las partes en espirales distintas, y (3) una mezcla de otros tipos, generalmente llamada hemicíclica o espirocíclica. En las flores en espiral, el número de partes es casi siempre grande y generalmente se insertan en un receptáculo grande y están completamente libres entre sí, pero en las flores cíclicas, con receptáculos más pequeños y una inserción más cercana de las piezas, a menudo surgen modificaciones por cohesión y adhesión. La cohesión de partes similares afecta a cualquiera de los órganos de la flor. Los sépalos pueden unirse en un tubo de cáliz o los pétalos en un tubo de corola, el grado de unión varía en ambos casos desde la fusión completa, que no deja rastro de la individualidad de los miembros, a la cohesión en un anillo poco profundo sólo en la base. Si bien la cohesión de los sépalos, o sinsépalo, es un fenómeno esporádico, en el que incluso las especies dentro del mismo género pueden diferir, la condición simpétala, por otra parte, tiende a correr de manera consistente a través de familias enteras y es un valioso carácter clasificatorio.5

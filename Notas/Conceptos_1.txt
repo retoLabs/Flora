@@ -1,0 +1,127 @@
+BIODIVERSIDAD
+
+La vida se basa en la células
+Las células pueden ser Procariotas o Eukariotas
+Las células Eukariotas pueden ser Vegetales o Animales
+
+Los vegetales son seres que NO semueven a voluntad, y son Autótrofos (hacen fotosínteis)
+Los animales son seres que se mueven a voluntad, y son Heterótrofos.
+
+TAXONOMIA
+Para una primera clasificación de los seres vivos, Whittaker propuso 5 Reinos:
+Reino		|	Tipo celular	|	Organización	|	Nutrición	|	Reproducción
+---------|-----------------|-----------------|--------------|------------------
+Monera	|	Procariota		|	Unicelular		|	Auto/Hetero |	Asexual
+Protista	|	Eukariotas		|	Unicelular		|	Auto/Hetero |	Sexual/Asex
+Fungi		|	Eukariotas		|	Uni/Pluri 		|	Heterotrofo |  Sexual/Asex
+Plantae	|	Eukariotas		|	Pluricelular	|	Autótrofo 	|	Sexual/Asex
+Animalia	|	Eukariotas		|	Pluricelular	|	Heterotrofo |	Sexual/Asex
+
+
+Reinos según Whittaker + Margulis:
+Monera
+	Bacterias
+Protista ó Protoctista
+	Protozoos
+	Algas
+	Mohos del limo
+Fungi
+	Hongos
+	Líquenes
+Plantae
+	Musgos
+	Helechos
+	Coníferas (Gimnospermas)
+	Plantas con flor (Anguiospermas)
+Animalia
+	Vertebrados
+	Invertebrados
+
+Linneo propuso una nomenclatura binomial (Especie = Género || epíteto)
+Y un árbol de clasificación taxonómica basada en categorías:
+[Dominio]
+Reino
+Filo/División (Animales/Plantas)
+Clase
+Orden
+Familia
+Género
+Especie
+[Subsp.]
+
+Un Clado es una rama del árbol filogenético. Representa un conjunto de especies emparentadas por un antepasado común. Un taxón es un clado al que le ha asignado una categoría taxonómica.
+
+La Taxonomia se puede basar en la Morfología o la Filogenia
+
+ORGANOGRAFIA VEGETAL
+En los vegetales hay 3 tipos de tejidos
+	Proteccón
+		Epidermis
+		Endodermis
+	Fundamental
+		Parénquima
+	Vascular
+		Xilema
+		Floema
+
+Morfológicamente, las plantas VASCULARES se componen de Raiz, Tallo, Hojas (Cormo)
+
+Cormófitos:
+	Esporófitos			reproducción por esporas (Criptógamas)(antiguam. Pteridofitos)
+	Espermátofitos		reproducción por semillas (Fanerógamas)
+		Las Gimnospernes NO tienen Flores
+		Las Angiospermas SI tienen Flores
+			Monocotiledóneas
+			Dicotiledóneas
+
+
+a Raiz puede presentar formas:
+Axonomorfa
+Fasciculada
+
+Ssistema caulinar comprende:
+	 el tallo
+	 las ramas
+	 las hojas
+	 
+El Tallo puede presentar Portes :
+Arbóreo (Arbol) -> Tronco
+Arbustivo (Arbusto)
+Herbáceo (Hierba)
+
+Los árboles pueden presentar tronco 
+Monopodial : Ramas que salen directamente el tronco
+Simpodial : Ramas que salen de otras ramas
+
+Las Hojas se disponen sobre las ramas, en los Nudos
+La disposición de las hojas se llama Filotaxia.
+
+Las hojas se componen de
+Peciolo
+Limbo (Anverso y Reverso)
+El limbo se caracteriza por
+	Borde
+	Apice
+	Base
+	Nervadura
+
+La Flor es la parte reproductiva de la planta
+Parte esteril (Perianto)
+	Cáliz
+		Sépalos
+	Corola
+		Pétalos
+
+	Si Sépalos ~~ Pétalos 
+	Perigonio
+		Tépalos
+		
+Parte fértil
+	Gineceo
+		Estigma
+		Ovario
+	Androceo
+		Pistilo
+		Estambres
+
+

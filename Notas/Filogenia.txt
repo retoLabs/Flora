@@ -1,0 +1,82 @@
+FILOGENIA
+
+Relaciones evolutivas. Basado en el ARNm
+
+Arbol filogenético simple (Carl Woese)
+
+Dominios:
+[RAIZ]
+	BACTERIA
+	[*] 
+		Hipertermófilos
+	[*]
+		Bacterias Gram-positivas
+		[*]
+			Cloroplastos
+			Cianobacterias
+	[*]
+		Mitocondrias
+		Proteobacterias
+	ARCHAEA
+	[*]
+		Hipertermófilos
+		[*]
+			Metanógenos
+			Halófilos extremos
+	EUKARIA
+	[*]
+		Giardia
+	[*]
+		Flagelado
+	[*]
+		Hongos mucosos
+	[*]
+		Animales
+	[*]
+		Plantas
+	[*]
+		Hongos
+
+
+Se presenta una clasificación general de las plantas, derivada de una síntesis
+realizada por Cronquist (1984), en dos subreinos:
+
+Subreino Thallobionta (talofitas)
+	bacterias
+	algas (ficofitos)
+		verdes (Clorofíceas)
+		pardas (Feofíceas)
+		rojas (Rodofíceas.)
+	hongos
+	[líquenes]
+
+Subreino Embrybionta que incluye las divisiones:
+	Bryophyta: musgos y hepáticas
+	Rhyniophyta
+	Psilotophyt
+	Lycopodiophyta: licopodios
+	Equisetophyta/Sphenophyta: equisetos (cola de caballo)
+	Polypodiophyta: helechos
+	Pinophyta (gimnospermas): pinos, araucarias, ciprés, podocarpus
+	Magnoliophyta (angiosperma).
+		Esta última división, se subdivide en dos clases: 
+	 	Magnoliopsida (dicotiledóneas)
+	 	Liliopsida (monocotiledóneas)
+
+Actualmente para la clasificación específica de las angiospermas, basada en
+criterios filogenéticos, se sigue la recomendación del Grupo de la Filogenia de
+Angiospermas o en inglés “Angiosperm phylogenetic groups, APG), y existen:
+APG (1998); APG II (2003), APG III (2009); y, APG IV (2016).
+Según APG IV las angiospermas se dividen en tres clases: 
+	Dicotiledóneas
+		magnoliidae o magnólidas
+		eudicotiledóneas o eudicots
+	Monocotiledóneas
+		monocotiledóneas o monocots
+
+
+Cladismo (Filogenetica)
+	Sinapomorfia
+	Simplesiomorfias
+Feneticista
+Evolucionista

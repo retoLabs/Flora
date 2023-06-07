@@ -1,0 +1,13 @@
+una célula vegetal está constituida por las siguientes partes:
+	Protoplasto
+		Protolasma
+			Citoplasma
+			Núcleo
+		Sustancias ergásticas
+	Pared celular
+		Primaria
+		Lámina media
+		Secundaria
+
+células con varios núcleos reciben el nombre de cenocíticas
+

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>RETO::Flora Capolat</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script type="text/javascript" src="/Kernel0/lib/prototype.js"></script>
+<script type="text/javascript" src="/Kernel0/lib/libBase64.js"></script>
+<script type="text/javascript" src="/Kernel0/js/k0_comun.js"></script>
+<script type="text/javascript" src="/Kernel0/js/objK0_Arbol.js"></script>
+<script type="text/javascript" src="/Kernel0/js/libK0_Ramas.js"></script>
+<style>
+#divBase {margin-left:20px;}
+#divMenu {margin-left:20px;}
+</style>
+<script>
+var arbol = '';
+ // para el montaje
+var rama = '';
+var ancla = '';
+var anclas = '';
+
+function ecoPbas(resp){
+   alert(resp.responseText);
+}
+
+function expandeNodoFlora(id){
+	var nodo = arbol.getNodoById(id);
+	nodo.set('stat','EXPAN');
+	arbol.show('divBase');
+}
+function colapsaNodoFlora(id){
+	var nodo = arbol.getNodoById(id);
+	nodo.set('stat','COLAP');
+	arbol.show('divBase');
+}
+
+function showNodosFlora(nodo,divBase,nivel){
+
+	var i,ctl,a;
+	var divNodo = new Element('div',{className:'button-group'});
+	divNodo.style.marginLeft = (nivel*30)+'px';
+	divNodo.style.marginTop = '8px';
+
+	var status = nodo.get('stat');
+	switch (status){
+		case 'EXPAN':
+			i = new Element('i',{className:'fa fa-plus'});
+			ctl = new Element('a',{className: 'btn', href:'javascript:colapsaNodoFlora('+nodo.get('id0')+')'}).update(i);
+			a = new Element('a',{className: 'btn btn-primary', href:'javascript:editNodoMaket('+nodo.get('id0')+')'}).update(nodo.get('tag'));
+			break;
+		case 'COLAP':
+			i = new Element('i',{className:'fa fa-minus'});
+			ctl = new Element('a',{className: 'btn', href:'javascript:expandeNodoFlora('+nodo.get('id0')+')'}).update(i);
+			a = new Element('a',{className: 'btn btn-info', href:'javascript:editNodoMaket('+nodo.get('id0')+')'}).update(nodo.get('tag'));
+			break;
+		case 'FULLA':
+			if (nodo.get('cod') == '_ancla'){
+				i = new Element('i',{className:'fa fa-anchor'});
+				ctl = new Element('a',{className: 'btn', href:'javascript:cargaRamaNodo('+nodo.get('id0')+')'}).update(i);
+			}
+			else {
+				i = new Element('i',{className:'fa fa-leaf'});
+				ctl = new Element('span',{className: 'btn'}).update(i);
+			}
+			a = new Element('a',{className: 'btn btn-success', href:'javascript:editNodoFlora('+nodo.get('id0')+')'}).update(nodo.get('tag'));
+			break;
+	} 
+	divNodo.appendChild(ctl);
+	divNodo.appendChild(a);
+	$(divBase).appendChild(divNodo);
+}
+// Crea relaciones padre-hijo aleatorias
+
+function estructuraArbol(nodos){
+	var ixP;
+	nodos.each(function (nodo,ix){
+		if (ix){
+			ixP = Math.floor(Math.random()*ix);
+			nodo.set('id1',nodos[ixP].get('id0'));
+		}
+	})
+}
+
+function crearArbolFlora(nom){
+   var n = $('N').value;
+   var nodos = new Array();
+   console.log('Crear arbol con '+n+' nodos');
+   var nodo0 =	getNodoZero(nom,'FLORA');
+   nodos.push(nodo0);
+   for (var i=0;i<n;i++){
+      var nodo = getNodoNuevo('Nodo '+(i+1));
+      nodos.push(nodo);
+   }
+   estructuraArbol(nodos);
+   var nodosOK = optimizaNodosArbol(nodos);
+	arbol = new retoArbol(nodosOK,showNodosFlora);
+	arbol.show('divBase');
+
+}
+
+
+function grabarArbolFlora(nom){
+	var nodos = arbol.getNodos();
+	var stmt = nodos2docum(nom,'Flora','FLORA','.arbol',nodos);
+	console.log(stmt);
+	ajaxQueryMongoDB('RETO',stmt,'/home/reto/Apps/Flora/admin',ecoPbas);
+}
+
+
+function ecoCargarArbol(resp){
+   var nodos = strMongo2nodos(resp.responseText);
+   var nodosOK = optimizaNodosArbol(nodos);
+	arbol = new retoArbol(nodosOK,showNodosFlora);
+	arbol.show('divBase');
+}
+
+function cargarArbolFlora(nom){
+	var stmt = 'db.Flora.find({nombre:"'+nom+'"},{_id:0,nodos:1})';
+	console.log(stmt);
+	ajaxQueryMongoDB('RETO',stmt,'/home/reto/Apps/Flora/admin',ecoCargarArbol);
+}
+//------------------------------------------------------------------- Montar la rama
+function anclarRamaArbol(nom){
+   var OK = false;
+   var padre= '';
+   
+   var nodos = arbol.getNodos();
+   // busca un nodo FULLA para injertar la rama
+   nodos.each(function(nodo){
+      if (!OK && nodo.get('stat') == 'FULLA'){
+         padre = nodo;
+         OK = true;
+         }
+   })
+   
+	var ancla = getNodoNuevo('Injerto');
+	ancla.set('cod','_ancla');
+	ancla.set('etc',nom);
+	arbol.addNodoHijo(padre,ancla);
+	arbol.show('divBase');
+}
+function ecoCargarRama(resp){
+   var nodos = strMongo2nodos(resp.responseText);
+   console.log('Nodos rama: '+nodos.length);
+   var nodosOK = optimizaNodosArbol(nodos);
+try{	arbol.pegaRamaNodo(ancla,nodosOK);} catch(e){alert(e.message);}
+   arbol.show('divBase');
+}
+
+function cargaRamaNodo(id){
+}
+function cargaRamasAll(){
+   ancla = anclas.pop();
+   if (!guay(ancla)){ alert('Montado'); return false;}
+   
+   var nom = ancla.get('etc');
+	var stmt = 'db.tests0.find({nombre:"'+nom+'"},{_id:0,nodos:1})';
+	console.log(stmt);
+	ajaxQueryMongoDB('RETO',stmt,'/home/reto/Apps/Flora/admin',ecoCargarRama);
+}
+
+function montarArbolFlora(){
+   anclas = arbol.getNodosAncla();
+   console.log ('Anclas: '+anclas.length);
+   cargaRamasAll();
+}
+//------------------------------------------------------------------- Hooks
+function hookCrearArbol(){crearArbolFlora('elArbol');}
+function hookCrearRama(){crearArbolFlora('laRama');}
+function hookGrabarArbol(){grabarArbolFlora('myArbol'); }
+function hookGrabarRama(){grabarArbolFlora('myRama');}
+function hookCargarArbol(){cargarArbolFlora('myArbol');}
+function hookCargarRama(){cargarArbolFlora('myRama');}
+function hookAnclarRama(){anclarRamaArbol('myRama');}
+function hookMontarArbol(){montarArbolFlora('myArbol');}
+
+</script>
+</head>
+<body>
+<div id="divMenu">
+<h1> Flora de Capolat</h1>
+<input type="text" id="N"  placeholder="Num Nodos" value="10" style="width:80px;text-align:center">
+<div class="btn btn-default"><a href="javascript:hookCrearArbol()">Crear Arbol</a></div>  
+<div class="btn btn-default"><a href="javascript:hookGrabarArbol()">Grabar Arbol</a></div>  
+<div class="btn btn-default"><a href="javascript:hookCargarArbol()">Cargar Arbol</a></div>  
+<div class="btn btn-default"><a href="javascript:hookCrearRama()">Crear Rama</a></div>  
+<div class="btn btn-default"><a href="javascript:hookGrabarRama()">Grabar Rama</a></div>  
+<div class="btn btn-default"><a href="javascript:hookCargarRama()">Cargar Rama</a></div>  
+<div class="btn btn-default"><a href="javascript:hookAnclarRama()">Anclar Rama</a></div>  
+<div class="btn btn-default"><a href="javascript:hookMontarArbol()">Montar Arbol</a></div>  
+<div class="btn btn-default"><a href="floraGrupo.html">Anotaciones</a></div>  
+</div>
+
+<div id="divBase"></div>
+
+</body>
+</html>
