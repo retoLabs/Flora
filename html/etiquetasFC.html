@@ -16,7 +16,10 @@
 
 	<style>
 
+		.foto {width: 90%}
 		.subcat {color:red;}
+
+		ul {list-style: none;padding-left: 20px;}
 		.faqHeader {
 			font-size: 27px;
 			margin: 20px;
@@ -27,7 +30,7 @@
 			content: "\e072"; /* "play" icon */
 			float: right;
 			color: #F58723;
-			font-size: 18px;
+			font-size: 14px;
 			line-height: 22px;
 			/* rotate "play" icon from > (right arrow) to down arrow */
 			-webkit-transform: rotate(-90deg);
@@ -72,8 +75,19 @@
 
     <br />
     <div class="row">
+    	<div class="col-md-3">
  		<div class="panel-group" id="accordion">
-			<div class="faqHeader"></div>
+			<div>
+				<h2>Fragaria viridis</h2>
+				<form>
+					<input type="text" name="IMG" value="https://floracatalana.cat/flora/vasculars/taxons/imatges/VTax467.ExN.Img15"><br>
+
+					<input type="radio" name="ZOOM" value="MACRO"> Macro
+					<input type="radio" name="ZOOM" value="MICRO"> Micro
+					<input type="radio" name="ZOOM" value="GRAL"> General
+
+				</form>
+			</div>
 
 			<div class="panel panel-default">
 				<div class="panel-heading">
@@ -83,22 +97,25 @@
 				</div>
 				<div id="collapse_I" class="panel-collapse collapse">
 					<div class="panel-body">
+						<form>
 						<ul>
-							<li>Ala</li>
-							<li>Cladodi</li>
-							<li>Gemma</li>
-							<li>Escorça</li>
-							<li>Espiniscència</li>
-							<li>Esquama</li>
-							<li>Estoló</li>
-							<li>Fil·lotaxi</li>
-							<li>Glàndula</li>
-							<li>Papil·la</li>
-							<li>Pilositat</li>
-							<li>Ramificació</li>
-							<li>Secció</li>
-							<li>Turió</li>
+							<li><input type="checkbox" name="TAG" value="ttALA"> Ala</li>
+							<li><input type="checkbox" name="TAG" value="ttCLA"> Cladodi</li>
+							<li><input type="checkbox" name="TAG" value="ttGEM"> Gemma</li>
+							<li><input type="checkbox" name="TAG" value="ttESC"> Escorça</li>
+							<li><input type="checkbox" name="TAG" value="ttESP"> Espiniscència</li>
+							<li><input type="checkbox" name="TAG" value="ttESQ"> Esquama</li>
+							<li><input type="checkbox" name="TAG" value="ttEST"> Estoló</li>
+							<li><input type="checkbox" name="TAG" value="ttFIL"> Fil·lotaxi</li>
+							<li><input type="checkbox" name="TAG" value="ttGLA"> Glàndula</li>
+							<li><input type="checkbox" name="TAG" value="ttPAP"> Papil·la</li>
+							<li><input type="checkbox" name="TAG" value="ttPIL"> Pilositat</li>
+							<li><input type="checkbox" name="TAG" value="ttRAM"> Ramificació</li>
+							<li><input type="checkbox" name="TAG" value="ttSEC"> Secció</li>
+							<li><input type="checkbox" name="TAG" value="ttTUR"> Turió</li>
 						</ul>
+						<input type="submit" value="Anotar">
+						</form>
 					</div>
 				</div>
 			</div>
@@ -111,41 +128,44 @@
 				</div>
 				<div id="collapse_II" class="panel-collapse collapse">
 					<div class="panel-body">
+						<form>
 						<ul>
-							<li class="subcat">Fulla</li>
-							<li class="subcat">Folíol</li>
-							<li class="subcat">Fronda</li>
-							<li>Beina</li>
-							<li>Bulbil</li>
-							<li>Cotilèdon</li>
-							<li>Circell</li>
-							<li>Estípula</li>
-							<li>Espiniscència</li>
-							<li>Fil·lodi</li>
-							<li>Glàndula</li>
-							<li>Lígula fulla</li>
-							<li>Inserció</li>
-							<li>Limbe
-								<ul>
-									<li>Anvers</li>
-									<li>Revers</li>
-									<li>Marge</li>
-									<li>Base limbe</li>
-									<li>Àpex limbe</li>
+							<li class="subcat"><input type="radio" name="FR1" value="FUL"> Fulla</li>
+							<li class="subcat"><input type="radio" name="FR1" value="FOL"> Folíol</li>
+							<li class="subcat"><input type="radio" name="FR1" value="FRO"> Fronda</li>
+							<li><input type="checkbox" name="TAG" value="fuBEI"> Beina</li>
+							<li><input type="checkbox" name="TAG" value="fuBUL"> Bulbil</li>
+							<li><input type="checkbox" name="TAG" value="fuCOT"> Cotilèdon</li>
+							<li><input type="checkbox" name="TAG" value="fuCIR"> Circell</li>
+							<li><input type="checkbox" name="TAG" value="fuEST"> Estípula</li>
+							<li><input type="checkbox" name="TAG" value="fuESP"> Espiniscència</li>
+							<li><input type="checkbox" name="TAG" value="fuFIL"> Fil·lodi</li>
+							<li><input type="checkbox" name="TAG" value="fuGLA"> Glàndula</li>
+							<li><input type="checkbox" name="TAG" value="fuLIG"> Lígula fulla</li>
+							<li><input type="checkbox" name="TAG" value="fuINS"> Inserció</li>
+							<li><input type="checkbox" name="TAG" value="fuLIM"> Limbe
+								<ul id="LIMBE">
+									<li><input type="checkbox" name="TAG" value="fuANV"> Anvers</li>
+									<li><input type="checkbox" name="TAG" value="fuREV"> Revers</li>
+									<li><input type="checkbox" name="TAG" value="fuMAR"> Marge</li>
+									<li><input type="checkbox" name="TAG" value="fuBAS"> Base limbe</li>
+									<li><input type="checkbox" name="TAG" value="fuAPE"> Àpex limbe</li>
 								</ul>
 							</li>
-							<li>Nectari</li>
-							<li>Nervadura</li>
-							<li>Papil·la</li>
-							<li>Pecíol</li>
-							<li>Ala (Pecíol)</li>
-							<li>Peciól·lul</li>
-							<li>Pilositat</li>
-							<li>Pinna/Pínnula</li>
-							<li>Raquis</li>
-							<li>Roseta</li>
-							<li>Secció</li>
+							<li><input type="checkbox" name="TAG" value="fuNEC"> Nectari</li>
+							<li><input type="checkbox" name="TAG" value="fuNER"> Nervadura</li>
+							<li><input type="checkbox" name="TAG" value="fuPAP"> Papil·la</li>
+							<li><input type="checkbox" name="TAG" value="fuPEC"> Pecíol</li>
+							<li><input type="checkbox" name="TAG" value="fuALA"> Ala (Pecíol)</li>
+							<li><input type="checkbox" name="TAG" value="fuPEC"> Peciól·lul</li>
+							<li><input type="checkbox" name="TAG" value="fuPIL"> Pilositat</li>
+							<li><input type="checkbox" name="TAG" value="fuPIN"> Pinna/Pínnula</li>
+							<li><input type="checkbox" name="TAG" value="fuRAQ"> Raquis</li>
+							<li><input type="checkbox" name="TAG" value="fuROS"> Roseta</li>
+							<li><input type="checkbox" name="TAG" value="fuSEC"> Secció</li>
 						</ul>
+						<input type="submit" value="Anotar">
+						</form>
 					</div>
 				</div>
 			</div>
@@ -158,57 +178,60 @@
 				</div>
 				<div id="collapse_III" class="panel-collapse collapse">
 					<div class="panel-body">
+						<form>
 						<ul>
-							<li class="subcat">Flor</li>
-							<li class="subcat">Inflorescéncia</li>
-							<li>Bràctees/Bractèloles</li>
-							<li>Bulbil</li>
-							<li>Calicle</li>
-							<li>Calze
+							<li class="subcat"><input type="radio" name="FLO" value="FLO"> Flor</li>
+							<li class="subcat"><input type="radio" name="FRO" value="INF"> Inflorescéncia</li>
+							<li><input type="checkbox" name="TAG" value="flBRA"> Bràctees/Bractèloles</li>
+							<li><input type="checkbox" name="TAG" value="flBUL"> Bulbil</li>
+							<li><input type="checkbox" name="TAG" value="flCAL"> Calicle</li>
+							<li><input type="checkbox" name="TAG" value="flCAZ"> Calze
 								<ul>
-									<li>Sépal</li>
+									<li><input type="checkbox" name="TAG" value="flSEP"> Sépal</li>
 								</ul>
 							</li>
-							<li>Corol·la
+							<li><input type="checkbox" name="TAG" value="flCOR"> Corol·la
 								<ul>
-									<li>Pètal</li>
+									<li><input type="checkbox" name="TAG" value="flPET"> Pètal</li>
 								</ul>
 							</li>
-							<li>Esperó</li>
-							<li>Espiniscència</li>
-							<li>Esquama</li>
-							<li>Estam
+							<li><input type="checkbox" name="TAG" value="flESp"> Esperó</li>
+							<li><input type="checkbox" name="TAG" value="flESP"> Espiniscència</li>
+							<li><input type="checkbox" name="TAG" value="flESQ"> Esquama</li>
+							<li><input type="checkbox" name="TAG" value="flEST"> Estam
 								<ul>
-									<li>Antera</li>
-									<li>Filament</li>
+									<li><input type="checkbox" name="TAG" value="flANT"> Antera</li>
+									<li><input type="checkbox" name="TAG" value="flFIL"> Filament</li>
 								</ul>
 							</li>
-							<li>Estaminodi</li>
-							<li>Glàndula</li>
-							<li>Glumma/Grummel·la</li>
-							<li>Lígula flor</li>
-							<li>Nectari</li>
-							<li>Papil·la</li>
-							<li>Pedicel/Peduncle</li>
-							<li>Perigoni
+							<li><input type="checkbox" name="TAG" value="flESt"> Estaminodi</li>
+							<li><input type="checkbox" name="TAG" value="flGLA"> Glàndula</li>
+							<li><input type="checkbox" name="TAG" value="flGLU"> Glumma/Grummel·la</li>
+							<li><input type="checkbox" name="TAG" value="flLIG"> Lígula flor</li>
+							<li><input type="checkbox" name="TAG" value="flNEC"> Nectari</li>
+							<li><input type="checkbox" name="TAG" value="flPAP"> Papil·la</li>
+							<li><input type="checkbox" name="TAG" value="flPED"> Pedicel/Peduncle</li>
+							<li><input type="checkbox" name="TAG" value="flPER"> Perigoni
 								<ul>
-									<li>Tèpal</li>
+									<li><input type="checkbox" name="TAG" value="flTEP"> Tèpal</li>
 								</ul>
 							</li>
-							<li>Pilositat</li>
-							<li>Pistil
+							<li><input type="checkbox" name="TAG" value="flPIL"> Pilositat</li>
+							<li><input type="checkbox" name="TAG" value="flPIS"> Pistil
 								<ul>
-									<li>Estigma</li>
-									<li>Estil</li>
-									<li>Ovari</li>
-									<li>Secció</li>
+									<li><input type="checkbox" name="TAG" value="flEST"> Estigma</li>
+									<li><input type="checkbox" name="TAG" value="flESt"> Estil</li>
+									<li><input type="checkbox" name="TAG" value="flOVA"> Ovari</li>
+									<li><input type="checkbox" name="TAG" value="flSEC"> Secció</li>
 								</ul>
 							</li>
-							<li>Pistilodi</li>
-							<li>Pocella</li>
-							<li>Raquis</li>
-							<li>Vil·lá</li>
+							<li><input type="checkbox" name="TAG" value="flPIS"> Pistilodi</li>
+							<li><input type="checkbox" name="TAG" value="flPON"> Poncella</li>
+							<li><input type="checkbox" name="TAG" value="flRAQ"> Raquis</li>
+							<li><input type="checkbox" name="TAG" value="flVIL"> Vil·lá</li>
 						</ul>
+						<input type="submit" value="Anotar">
+						</form>
 					</div>
 				</div>
 			</div>
@@ -222,23 +245,22 @@
 				<div id="collapse_IV" class="panel-collapse collapse">
 					<div class="panel-body">
 						<form>
-							
 						<ul>
 							<li class="subcat"><input type="radio" name="FR1" value="FRU"> Fruit</li>
-							<li class="subcat"><input type="radio" name="FR1" value="INF">Infrutescència</li>
-							<li class="subcat"><input type="radio" name="FR1" value="LLA">Llavor</li>
-							<li><input type="checkbox" name="TAG" value="ALA">Ala</li>
-							<li><input type="checkbox" name="TAG" value="BEC">Bec</li>
-							<li><input type="checkbox" name="TAG" value="CAL">Calze</li>
-							<li><input type="checkbox" name="TAG" value="CAR">Carúncula</li>
-							<li><input type="checkbox" name="TAG" value="ESP">Espiniscència</li>
-							<li><input type="checkbox" name="TAG" value="ESQ">Esquama</li>
-							<li><input type="checkbox" name="TAG" value="GLA">Glàndula</li>
-							<li><input type="checkbox" name="TAG" value="PAP">Papil·la</li>
-							<li><input type="checkbox" name="TAG" value="PED">Pedicel/Peduncle</li>
-							<li><input type="checkbox" name="TAG" value="PIL">Pilositat</li>
-							<li><input type="checkbox" name="TAG" value="SEC">Secció</li>
-							<li><input type="checkbox" name="TAG" value="VIL">Vil·lá</li>
+							<li class="subcat"><input type="radio" name="FR1" value="INF"> Infrutescència</li>
+							<li class="subcat"><input type="radio" name="FR1" value="LLA"> Llavor</li>
+							<li><input type="checkbox" name="TAG" value="frALA"> Ala</li>
+							<li><input type="checkbox" name="TAG" value="frBEC"> Bec</li>
+							<li><input type="checkbox" name="TAG" value="frCAL"> Calze</li>
+							<li><input type="checkbox" name="TAG" value="frCAR"> Carúncula</li>
+							<li><input type="checkbox" name="TAG" value="frESP"> Espiniscència</li>
+							<li><input type="checkbox" name="TAG" value="frESQ"> Esquama</li>
+							<li><input type="checkbox" name="TAG" value="frGLA"> Glàndula</li>
+							<li><input type="checkbox" name="TAG" value="frPAP"> Papil·la</li>
+							<li><input type="checkbox" name="TAG" value="frPED"> Pedicel/Peduncle</li>
+							<li><input type="checkbox" name="TAG" value="frPIL"> Pilositat</li>
+							<li><input type="checkbox" name="TAG" value="frSEC"> Secció</li>
+							<li><input type="checkbox" name="TAG" value="frVIL"> Vil·lá</li>
 						</ul>
 						<input type="submit" value="Anotar">
 						</form>
@@ -254,16 +276,19 @@
 				</div>
 				<div id="collapse_V" class="panel-collapse collapse">
 					<div class="panel-body">
+						<form>
 						<ul>
-							<li>Subterrani</li>
-							<li>Bulb</li>
-							<li>Bulbil</li>
-							<li>Rel</li>
-							<li>Rizoma</li>
-							<li>Tubercle</li>
-							<li>Esquama</li>
-							<li>Nòdul</li>
+							<li class="subcat"><input type="checkbox" name="TAG" value="suSUB"> Subterrani</li>
+							<li><input type="checkbox" name="TAG" value="suBUL"> Bulb</li>
+							<li><input type="checkbox" name="TAG" value="suBUl"> Bulbil</li>
+							<li><input type="checkbox" name="TAG" value="suREL"> Rel</li>
+							<li><input type="checkbox" name="TAG" value="suRIZ"> Rizoma</li>
+							<li><input type="checkbox" name="TAG" value="suTUB"> Tubercle</li>
+							<li><input type="checkbox" name="TAG" value="suESQ"> Esquama</li>
+							<li><input type="checkbox" name="TAG" value="suNOD"> Nòdul</li>
 						</ul>
+						<input type="submit" value="Anotar">
+						</form>
 					</div>
 				</div>
 			</div>
@@ -276,16 +301,20 @@
 				</div>
 				<div id="collapse_VI" class="panel-collapse collapse">
 					<div class="panel-body">
+						<form>
 						<ul>
-							<li>Port</li>
-							<li>Plántula</li>
-							<li>Base Port</li>
-							<li>Àpex port</li>
-							<li>Capçada</li>
+							<li class="subcat"><input type="checkbox" name="TAG" value="poPOR"> Port</li>
+							<li><input type="checkbox" name="TAG" value="poPLA"> Plántula</li>
+							<li><input type="checkbox" name="TAG" value="poBAS"> Base Port</li>
+							<li><input type="checkbox" name="TAG" value="poAPE"> Àpex port</li>
+							<li><input type="checkbox" name="TAG" value="poCAP"> Capçada</li>
 						</ul>
+						<input type="submit" value="Anotar">
+						</form>
 					</div>
 				</div>
 			</div>
+
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
@@ -294,10 +323,13 @@
 				</div>
 				<div id="collapse_VII" class="panel-collapse collapse">
 					<div class="panel-body">
+						<form>
 						<ul>
-							<li>Hàbitat</li>
-							<li>Planta suport</li>
+							<li class="subcat"><input type="checkbox" name="TAG" value="haHAB"> Hàbitat</li>
+							<li><input type="checkbox" name="TAG" value="haPLA"> Planta suport</li>
 						</ul>
+						<input type="submit" value="Anotar">
+						</form>
 					</div>
 				</div>
 			</div>
@@ -310,21 +342,32 @@
 				</div>
 				<div id="collapse_VIII" class="panel-collapse collapse">
 					<div class="panel-body">
+						<form>
 						<ul>
-							<li>Altres</li>
-							<li>Estròbil</li>
-							<li>Esporangis</li>
-							<li>Esporangiòfor</li>
-							<li>Exsudat</li>
-							<li>Indusi</li>
-							<li>Làtex</li>
-							<li>Sorus</li>
+							<li class="subcat"><input type="checkbox" name="TAG" value="alALT"> Altres</li>
+							<li><input type="checkbox" name="TAG" value="alEST"> Estròbil</li>
+							<li><input type="checkbox" name="TAG" value="alESP"> Esporangis</li>
+							<li><input type="checkbox" name="TAG" value="alESp"> Esporangiòfor</li>
+							<li><input type="checkbox" name="TAG" value="alEXS"> Exsudat</li>
+							<li><input type="checkbox" name="TAG" value="alIND"> Indusi</li>
+							<li><input type="checkbox" name="TAG" value="alLAT"> Làtex</li>
+							<li><input type="checkbox" name="TAG" value="alSOR"> Sorus</li>
 						</ul>
+						<input type="submit" value="Anotar">
+						</form>
 					</div>
 				</div>
 			</div>
     </div>
+  </div> <!-- col-md-3 -->
+
+  <div class="col-md-8">
+  	<!-- img src="/Flora/IMG_2164.JPG" class="foto" -->
+  	<img src="https://floracatalana.cat/flora/sites/default/files/imgvasculars/2019-06/mgc5/VTax467.ExN.Img15.jpg" class="foto">
+  </div> <!-- col-md-8-->
+
   </div> <!-- row -->
+
 </div> <!-- /container -->
 
 

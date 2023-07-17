@@ -1,2 +1,2 @@
 .headers ON
-select tag,genero,especie from flora;
+select cat as tag,genero,especie from arvense;
