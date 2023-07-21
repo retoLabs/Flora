@@ -5,14 +5,14 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<meta name="description" content="">
-		<meta name="author" content="PES Marigold">
 
 		<title>Etiquetas FC</title>
 
 		<!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script type="text/javascript" src="lib/libBase64.js"></script>
+		<script src="lib/vue_2517.js"></script>
 
 	<style>
 
@@ -68,6 +68,7 @@
 			}
 		}
 	</script>
+	<script type='module' src='js/tagsImg.js'></script>
 	</head>
 
 	<body>
@@ -78,25 +79,48 @@
 			<h1 class="blog-title">Flora Catalana</h1>
 			<h3 class="blog-title">Etiquetaje de fotos</h3>
 		</div>
-
-
 		<div class="alert alert-warning alert-dismissible" role="alert">
 				Este apartado permite asignar etiquetas a las fotos aportadas por los socios de Flora Catalana.
 		</div>
+		<div id="tagsFC">
+			<form class="form" >
+				<div class="row g-3">
+  			<div class="col-md-2">
 
-    <br />
-    <div class="row">
+				<select  class="form-control" >
+					<option v-for="item in taggersLst" v-bind:value="item.id">
+							{{ item.tag }}
+					</option>
+				</select>
+			</div>
+ 			<div class="col-md-4">
+				<select  class="form-control" >
+					<option v-for="item in plantsLst" v-bind:value="item.id" @click="setTaxon(item.taxon)">
+							{{ item.gen }} {{item.epit}} {{item.subsp}}
+					</option>
+				</select>
+			</div>
+
+ 			<div class="col-md-4">
+				<select  class="form-control" >
+					<option v-for="item in fotosLst" v-bind:value="item.id" @click="cargaFoto(item)">
+							{{item.taxon}}.{{item.ejemp}}.{{item.num}}.{{item.formato}}
+					</option>
+				</select>
+			</div>
+		</div><!-- row -->
+			</form>
+		</div>
+
+
+    <div class="row" style="margin-top:20px">
     	<div class="col-md-3">
  		<div class="panel-group" id="accordion">
 			<div>
-				<h2>Fragaria viridis</h2>
 				<form>
-					<input type="text" name="IMG" value="https://floracatalana.cat/flora/vasculars/taxons/imatges/VTax467.ExN.Img15"><br>
-
 					<input type="radio" name="ZOOM" value="MACRO"> Macro
 					<input type="radio" name="ZOOM" value="MICRO"> Micro
 					<input type="radio" name="ZOOM" value="GRAL"> General
-
 				</form>
 			</div>
 
@@ -139,7 +163,7 @@
 				</div>
 				<div id="collapse_II" class="panel-collapse collapse">
 					<div class="panel-body">
-						<form>
+						<form id="FU" method="post" action="javascript:formAction('FU')">
 						<ul>
 							<li class="subcat"><input type="radio" name="FR1" value="FUL"> Fulla</li>
 							<li class="subcat"><input type="radio" name="FR1" value="FOL"> Folíol</li>
@@ -189,7 +213,7 @@
 				</div>
 				<div id="collapse_III" class="panel-collapse collapse">
 					<div class="panel-body">
-						<form>
+						<form id="FL" method="post" action="javascript:formAction('FL')">
 						<ul>
 							<li class="subcat"><input type="radio" name="FLO" value="FLO"> Flor</li>
 							<li class="subcat"><input type="radio" name="FRO" value="INF"> Inflorescéncia</li>
@@ -255,7 +279,7 @@
 				</div>
 				<div id="collapse_IV" class="panel-collapse collapse">
 					<div class="panel-body">
-						<form>
+						<form id="FR" method="post" action="javascript:formAction('FR')">
 						<ul>
 							<li class="subcat"><input type="radio" name="FR1" value="FRU"> Fruit</li>
 							<li class="subcat"><input type="radio" name="FR1" value="INF"> Infrutescència</li>
@@ -287,7 +311,7 @@
 				</div>
 				<div id="collapse_V" class="panel-collapse collapse">
 					<div class="panel-body">
-						<form>
+						<form id="SU" method="post" action="javascript:formAction('SU')">
 						<ul>
 							<li class="subcat"><input type="checkbox" name="TAG" value="suSUB"> Subterrani</li>
 							<li><input type="checkbox" name="TAG" value="suBUL"> Bulb</li>
@@ -312,7 +336,7 @@
 				</div>
 				<div id="collapse_VI" class="panel-collapse collapse">
 					<div class="panel-body">
-						<form>
+						<form id="PO" method="post" action="javascript:formAction('PO')">
 						<ul>
 							<li class="subcat"><input type="checkbox" name="TAG" value="poPOR"> Port</li>
 							<li><input type="checkbox" name="TAG" value="poPLA"> Plántula</li>
@@ -334,7 +358,7 @@
 				</div>
 				<div id="collapse_VII" class="panel-collapse collapse">
 					<div class="panel-body">
-						<form>
+						<form id="HA" method="post" action="javascript:formAction('HA')">
 						<ul>
 							<li class="subcat"><input type="checkbox" name="TAG" value="haHAB"> Hàbitat</li>
 							<li><input type="checkbox" name="TAG" value="haPLA"> Planta suport</li>
@@ -353,7 +377,7 @@
 				</div>
 				<div id="collapse_VIII" class="panel-collapse collapse">
 					<div class="panel-body">
-						<form>
+						<form id="AL" method="post" action="javascript:formAction('AL')">
 						<ul>
 							<li class="subcat"><input type="checkbox" name="TAG" value="alALT"> Altres</li>
 							<li><input type="checkbox" name="TAG" value="alEST"> Estròbil</li>
@@ -374,7 +398,7 @@
 
   <div class="col-md-8">
   	<!-- img src="/Flora/IMG_2164.JPG" class="foto" -->
-  	<img src="https://floracatalana.cat/flora/sites/default/files/imgvasculars/2019-06/mgc5/VTax467.ExN.Img15.jpg" class="foto">
+  	<img id="foto" src="https://floracatalana.cat/flora/sites/default/files/imgvasculars/2019-06/mgc5/VTax467.ExN.Img15.jpg" class="foto">
   </div> <!-- col-md-8-->
 
   </div> <!-- row -->

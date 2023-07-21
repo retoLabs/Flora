@@ -1,2 +1,2 @@
 .headers ON
-select cat as tag,genero,especie from arvense;
+select * from fotos where taxon='VTax4222';
