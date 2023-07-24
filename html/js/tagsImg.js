@@ -16,7 +16,9 @@ window.showInfoEspecie = src.showInfoEspecie;
 
 function sesionTagsImgOK(){
 	src.initAppTags();
-	src.getTaggersList();
+	src.getRamasList();
+//	src.getTaggersList();
+// src.getPlantasList();
 }
 
 function initTagsImg(){

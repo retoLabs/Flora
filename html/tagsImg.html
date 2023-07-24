@@ -60,11 +60,16 @@
 
 	<script type="text/javascript">
 		function formAction(frmID){
+			var tags = [];
 			var inputs = document.getElementById(frmID).elements["TAG"];
 			console.log(inputs.length);
 			for (i = 0; i < inputs.length; i++) {
 				var input = inputs[i];
-				if (input.checked) console.log(input.value);
+				if (input.checked) {
+					console.log(input.value);
+					tags.push(input.value);
+					vgApp.appTagsFC.updtTags(tags);
+				}
 			}
 		}
 	</script>
@@ -85,28 +90,41 @@
 		<div id="tagsFC">
 			<form class="form" >
 				<div class="row g-3">
-  			<div class="col-md-2">
-
+  			<div class="col-md-1">
 				<select  class="form-control" >
 					<option v-for="item in taggersLst" v-bind:value="item.id">
 							{{ item.tag }}
 					</option>
 				</select>
 			</div>
- 			<div class="col-md-4">
+ 			<div class="col-md-3">
 				<select  class="form-control" >
-					<option v-for="item in plantsLst" v-bind:value="item.id" @click="setTaxon(item.taxon)">
+					<option v-for="item in plantasLst" v-bind:value="item.id" @click="setTaxon(item.taxon)">
 							{{ item.gen }} {{item.epit}} {{item.subsp}}
 					</option>
 				</select>
 			</div>
 
- 			<div class="col-md-4">
+ 			<div class="col-md-3">
 				<select  class="form-control" >
 					<option v-for="item in fotosLst" v-bind:value="item.id" @click="cargaFoto(item)">
 							{{item.taxon}}.{{item.ejemp}}.{{item.num}}.{{item.formato}}
 					</option>
 				</select>
+			</div>
+ 			<div class="col-md-2">
+				<select  class="form-control" >
+					<option v-for="item in categLst" v-bind:value="item" @click="setCateg(item)">
+							{{item}}
+					</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<form>
+					<input type="radio" name="ZOOM" value="MACRO" v-model="tagsFoto.zoom"> Macro
+					<input type="radio" name="ZOOM" value="MICRO" v-model="tagsFoto.zoom"> Micro
+					<input type="radio" name="ZOOM" value="GRAL"  v-model="tagsFoto.zoom"> General
+				</form>
 			</div>
 		</div><!-- row -->
 			</form>
@@ -114,15 +132,8 @@
 
 
     <div class="row" style="margin-top:20px">
-    	<div class="col-md-3">
+    	<div class="col-md-2">
  		<div class="panel-group" id="accordion">
-			<div>
-				<form>
-					<input type="radio" name="ZOOM" value="MACRO"> Macro
-					<input type="radio" name="ZOOM" value="MICRO"> Micro
-					<input type="radio" name="ZOOM" value="GRAL"> General
-				</form>
-			</div>
 
 			<div class="panel panel-default">
 				<div class="panel-heading">

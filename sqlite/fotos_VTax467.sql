@@ -1,0 +1,17 @@
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img1','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img2','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img3','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img4','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img5','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img6','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img7','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img8','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img9','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img10','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img11','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img12','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img13','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img14','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img15','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img16','jpg','R5');
+insert into fotos (taxon,ejemp,num,formato,rama)  values ('VTax467','ExN','Img17','jpg','R5');
