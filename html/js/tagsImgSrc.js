@@ -177,6 +177,38 @@ function initAppTags(){
 				categLst : ['TIJA/TRONC','FULLA','FLOR','FRUIT','SUBTERRANI','PORT','HABITAT','ALTRES']
 			},
 		methods : {
+			getContexto : function(){
+				var frmId = null;
+				var cntxt = null;
+				switch (this.tagsFoto.categ){
+					case 'TIJA/TRONC': frmId = 'TT'; break;
+					case 'FULLA': frmId = 'FU'; break;
+					case 'FLOR': frmId = 'FL'; break;
+					case 'FRUIT': frmId = 'FR'; break;
+					case 'SUBTERRANI': frmId = 'SU'; break;
+					case 'PORT': frmId = 'PO'; break;
+					case 'HABITAT': frmId = 'HA'; break;
+					case 'ALTRES': frmId = 'AL'; break;
+				}
+				var frm = utils.r$(frmId);
+				cntxt = frm.elements["SUBCAT"].value;
+				return cntxt;
+			},
+			grabaTags : function(){
+				this.tagsFoto.cntxt =this.getContexto();
+				var stmt = 'insert into tags_fotos (tagger,foto_id,categ,cntxt,zoom,tags) values (';
+				stmt += "'"+this.taggerK+"',";
+				stmt += this.foto.id+",";
+				stmt += "'"+this.tagsFoto.categ+"',";
+				stmt += "'"+this.tagsFoto.cntxt+"',";
+				stmt += "'"+this.tagsFoto.zoom+"',";
+				stmt += "'"+this.tagsFoto.tags.join(';')+"');";
+
+				alert(stmt);
+			},
+			setTaggerK : function(cod){
+				this.taggerK = cod;
+			},
 			setCateg : function(categ){
 				this.tagsFoto.categ = categ;
 			},
@@ -201,8 +233,8 @@ function initAppTags(){
 				this.fotos = fotos;
 			},
 			updtTags :function (tags){
-				this.tagsFoto.tags = tags;
-				console.log(this.tagsFoto.tags.join(';'));
+				this.tagsFoto.tags = this.tagsFoto.tags.concat(tags);
+				console.log(utils.o2s(this.tagsFoto));
 			},
 			getRamaFoto(cod){
 				var laRama = null;
@@ -214,7 +246,7 @@ function initAppTags(){
 			},
 			cargaFoto(foto){
 				this.foto = foto;
-//				console.log('rama:' + foto.rama);
+				console.log(utils.o2s(foto));
 				var urlImg = this.getRamaFoto(foto.rama);
 				if (urlImg){
 					urlImg += foto.taxon+".";
