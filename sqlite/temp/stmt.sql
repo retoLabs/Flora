@@ -1,2 +1,2 @@
 .headers ON
-select * from fotos where taxon='VTax1097';
+select * from tags_fotos where tagger='JMR' and foto_id=51;

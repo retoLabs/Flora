@@ -29,22 +29,8 @@ function ecoRamasList(xhr){
 }
 
 function getRamasList(){
-	var stmt = '';
-	stmt = "select * from ramas;";
-	console.log(stmt);
-
-	var stmtB64 = Base64.encode(stmt);
-	var body = {
-		id : 1234567, //vgApp.encript.sessId,
-		path : vgApp.sqlite.pathDB,
-		db   : 'tagsFC.sqlite',
-		stmt : stmtB64
-	}
-	var params = vgApp.paramsXHR;
-	params.base = vgApp.sqlite.base;
-	params.eco = ecoRamasList; 
-
-	ajax.ajaxCmdShell(params,body);
+	var stmt = "select * from ramas;";
+	execDDL_SQLite(stmt,ecoRamasList); 
 }
 
 
@@ -62,22 +48,8 @@ function ecoTaggersList(xhr){
 }
 
 function getTaggersList(){
-	var stmt = '';
-	stmt = "select * from taggers;";
-	console.log(stmt);
-
-	var stmtB64 = Base64.encode(stmt);
-	var body = {
-		id : 1234567, //vgApp.encript.sessId,
-		path : vgApp.sqlite.pathDB,
-		db   : 'tagsFC.sqlite',
-		stmt : stmtB64
-	}
-	var params = vgApp.paramsXHR;
-	params.base = vgApp.sqlite.base;
-	params.eco = ecoTaggersList; 
-
-	ajax.ajaxCmdShell(params,body);
+	var stmt = "select * from taggers;";
+	execDDL_SQLite(stmt,ecoTaggersList); 
 }
 
 //------------------------------------------------------------------- Plantas List
@@ -92,22 +64,8 @@ function ecoPlantasList(xhr){
 }
 
 function getPlantasList(){
-	var stmt = '';
-	stmt = "select * from plantas;";
-	console.log(stmt);
-
-	var stmtB64 = Base64.encode(stmt);
-	var body = {
-		id : 1234567, //vgApp.encript.sessId,
-		path : vgApp.sqlite.pathDB,
-		db   : 'tagsFC.sqlite',
-		stmt : stmtB64
-	}
-	var params = vgApp.paramsXHR;
-	params.base = vgApp.sqlite.base;
-	params.eco = ecoPlantasList; 
-
-	ajax.ajaxCmdShell(params,body);
+	var stmt = "select * from plantas;";
+	execDDL_SQLite(stmt,ecoPlantasList); 
 }
 //------------------------------------------------------------------- Fotos List
 function ecoFotosList(xhr){
@@ -121,31 +79,32 @@ function ecoFotosList(xhr){
 }
 
 function getFotosList(t){
-	var stmt = '';
-	stmt = "select * from fotos where taxon='"+t+"';";
-	console.log(stmt);
-
-	var stmtB64 = Base64.encode(stmt);
-	var body = {
-		id : 1234567, //vgApp.encript.sessId,
-		path : vgApp.sqlite.pathDB,
-		db   : 'tagsFC.sqlite',
-		stmt : stmtB64
-	}
-	var params = vgApp.paramsXHR;
-	params.base = vgApp.sqlite.base;
-	params.eco = ecoFotosList; 
-
-	ajax.ajaxCmdShell(params,body);
+	var stmt = "select * from fotos where taxon='"+t+"';";
+	execDDL_SQLite(stmt,ecoFotosList); 
 }
 
 //------------------------------------------------------------------- tagsFoto
+function ecoTagsFoto(xhr){
+   var filas = utils.csv2filas(xhr.responseText);
+	var lista = new Array();
+	filas.map(function(fila){
+		lista.push(fila);
+	})
+	console.log(utils.o2s(lista));
+
+}
+
+function cargaTagsFoto(taggerK,foto_id){
+	var stmt = "select * from tags_fotos where tagger='"+taggerK+"' and foto_id="+foto_id+";";
+	execDDL_SQLite(stmt,ecoTagsFoto); 
+}
 //------------------------------------------------------------------- DML SQLite TagsFC
-function ecoUpdateFila(xhr){
+
+// Para insert,update,delete:
+function ecoDDL_SQLite(xhr){
 	alert(xhr.responseText);
 }
-function updateFila(fila){
-	var stmt = "update agro set img='"+fila.img+"' where cod='" + fila.cod+"';";
+function execDDL_SQLite(stmt,eco){
 	console.log(stmt);
 
 	var stmtB64 = Base64.encode(stmt);
@@ -157,11 +116,10 @@ function updateFila(fila){
 	}
 	var params = vgApp.paramsXHR;
 	params.base = vgApp.sqlite.base;
-	params.eco = ecoUpdateFila; 
+	params.eco = eco; 
 
 	ajax.ajaxCmdShell(params,body);
-}
-
+}//------------------------------------------------------------------ apps Vue.js
 function initAppTags(){
 	vgApp.appTagsFC = new Vue({
 		el: '#tagsFC',
@@ -195,6 +153,12 @@ function initAppTags(){
 				return cntxt;
 			},
 			grabaTags : function(){
+				if (!this.taggerK){alert('Tagger null'); return};
+				if (!this.foto.id){alert('Taxon null')}; return;
+				if (!this.tagsFoto.categ){alert('Categoria null'); return};
+				if (!this.tagsFoto.categ){alert('Categ contexto null'); return};
+				if (!this.tagsFoto.categ){alert('Zoom null'); return};
+
 				this.tagsFoto.cntxt =this.getContexto();
 				var stmt = 'insert into tags_fotos (tagger,foto_id,categ,cntxt,zoom,tags) values (';
 				stmt += "'"+this.taggerK+"',";
@@ -203,8 +167,7 @@ function initAppTags(){
 				stmt += "'"+this.tagsFoto.cntxt+"',";
 				stmt += "'"+this.tagsFoto.zoom+"',";
 				stmt += "'"+this.tagsFoto.tags.join(';')+"');";
-
-				alert(stmt);
+				execDDL_SQLite(stmt,ecoDDL_SQLite);
 			},
 			setTaggerK : function(cod){
 				this.taggerK = cod;
@@ -236,7 +199,7 @@ function initAppTags(){
 				this.tagsFoto.tags = this.tagsFoto.tags.concat(tags);
 				console.log(utils.o2s(this.tagsFoto));
 			},
-			getRamaFoto(cod){
+			getRamaFoto :function (cod){
 				var laRama = null;
 				this.ramasLst.map(function(r){
 //					console.log(r.cod+'->'+r.rama);
@@ -244,7 +207,7 @@ function initAppTags(){
 				});
 				return laRama;
 			},
-			cargaFoto(foto){
+			cargaFoto :function (foto){
 				this.foto = foto;
 				console.log(utils.o2s(foto));
 				var urlImg = this.getRamaFoto(foto.rama);
@@ -256,7 +219,7 @@ function initAppTags(){
 
 					var img = utils.r$('foto');
 					img.src = urlImg;
-//					cargaTagsFoto(this.taggerK,foto.id);
+					cargaTagsFoto(this.taggerK,foto.id);
 				}
 				else alert('Error en path de la foto')
 			},
