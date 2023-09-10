@@ -41,7 +41,7 @@ function ecoTaggersList(xhr){
 	filas.map(function(fila){
 		lista.push(fila);
 	})
-//	console.log(lista);
+	console.log(lista);
 	vgApp.appTagsFC.updtTaggersLst(lista);
 	getPlantasList();
 
@@ -64,7 +64,7 @@ function ecoPlantasList(xhr){
 }
 
 function getPlantasList(){
-	var stmt = "select * from plantas;";
+	var stmt = "select * from plantas where taggerK='"+vgApp.appTagsFC.taggerK+"';";
 	execDDL_SQLite(stmt,ecoPlantasList); 
 }
 //------------------------------------------------------------------- Fotos List
@@ -90,7 +90,11 @@ function ecoTagsFoto(xhr){
 	filas.map(function(fila){
 		lista.push(fila);
 	})
-	console.log(utils.o2s(lista));
+	if (lista.length == 1){
+		console.log(utils.o2s(lista[0]));
+		vgApp.appTagsFC.showInfo(lista[0]);
+	}
+	else console.log(utils.o2s(lista));
 
 }
 
@@ -105,7 +109,7 @@ function ecoDDL_SQLite(xhr){
 	alert(xhr.responseText);
 }
 function execDDL_SQLite(stmt,eco){
-	console.log(stmt);
+//	console.log(stmt);
 
 	var stmtB64 = Base64.encode(stmt);
 	var body = {
@@ -127,14 +131,27 @@ function initAppTags(){
 				accion : null, // [label|review]
 				ramasLst : [],
 				taggersLst : [],
-				taggerK: null,
+				taggerK: 'JMR',
 				plantasLst: [],
+				taxon : null,
 				fotosLst: [],
 				foto : null,
 				tagsFoto : {categ:null,cntxt:null,zoom:null,tags:[]},
 				categLst : ['TIJA/TRONC','FULLA','FLOR','FRUIT','SUBTERRANI','PORT','HABITAT','ALTRES']
 			},
 		methods : {
+			resetTags: function (){
+				var formsIds = ['TT','FU','FL','FR','SU','PO','HA','AL'];
+				formsIds.map(function(frmId){
+					var inputs = document.getElementById(frmId).elements["TAG"];
+//					console.log(frmId+': '+inputs.length);
+					for (var i = 0; i < inputs.length; i++) {
+						var input = inputs[i];
+						input.checked = false;
+						}
+					})
+			},
+
 			getContexto : function(){
 				var frmId = null;
 				var cntxt = null;
@@ -153,13 +170,15 @@ function initAppTags(){
 				return cntxt;
 			},
 			grabaTags : function(){
-				if (!this.taggerK){alert('Tagger null'); return};
-				if (!this.foto.id){alert('Taxon null')}; return;
-				if (!this.tagsFoto.categ){alert('Categoria null'); return};
-				if (!this.tagsFoto.categ){alert('Categ contexto null'); return};
-				if (!this.tagsFoto.categ){alert('Zoom null'); return};
+				if (!this.taggerK){alert('Tagger null'); return;};
+				if (!this.taxon) {alert('Taxon null'); return;};
+				if (!this.foto.id){alert('Id Foto null');return;}
+				if (!this.tagsFoto.zoom){alert('Zoom null'); return;};
+				if (!this.tagsFoto.categ){alert('Categoria null'); return;};
 
-				this.tagsFoto.cntxt =this.getContexto();
+				this.tagsFoto.cntxt = this.getContexto();
+				if (!this.tagsFoto.cntxt){alert('Categ contexto null'); return;};
+
 				var stmt = 'insert into tags_fotos (tagger,foto_id,categ,cntxt,zoom,tags) values (';
 				stmt += "'"+this.taggerK+"',";
 				stmt += this.foto.id+",";
@@ -171,6 +190,7 @@ function initAppTags(){
 			},
 			setTaggerK : function(cod){
 				this.taggerK = cod;
+				getPlantasList();
 			},
 			setCateg : function(categ){
 				this.tagsFoto.categ = categ;
@@ -208,6 +228,7 @@ function initAppTags(){
 				return laRama;
 			},
 			cargaFoto :function (foto){
+				this.resetTags();
 				this.foto = foto;
 				console.log(utils.o2s(foto));
 				var urlImg = this.getRamaFoto(foto.rama);
@@ -223,7 +244,11 @@ function initAppTags(){
 				}
 				else alert('Error en path de la foto')
 			},
-			showInfo : function(){
+			showInfo : function(tags){
+				console.log(tags);
+				this.tagsFoto.categ = tags.categ;
+				this.tagsFoto.zoom = tags.zoom;
+				this.tagsFoto.cntxt = tags.cntxt;
 			}
 		}
 	})

@@ -145,10 +145,8 @@ function showInfoEspecie(gen,esp){
 				window.open('https://www.ncbi.nlm.nih.gov/gquery/?term='+nombre);
 				break;
 			case 'FCATALA':
-				var grupo = nombre[0];
-				nombre = nombre.replace('_','%20');
-				nombre = nombre.toLowerCase();
-				window.open('http://www.floracatalana.es/'+grupo+'/'+nombre+'.html');
+				nombre = nombre.replace('_','+');
+				window.open('https://floracatalana.cat/flora/cercador-principal?combine='+nombre);
 				break;
 
 			case 'ASTUNAT':

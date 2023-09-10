@@ -1,0 +1,61 @@
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Arabis','hirsuta','gerardi','VTax1097','JMR',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Cephalanthera','rubra',null,'VTax4222','JMR',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Cytisophyllum','sessilifolium',null,'VTax589','JMR',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Fragaria','viridis',null,'VTax467','JMR',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Galanthus','nivalis',null,'VTax3605','JMR',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Rumex','obtusifolius',null,'VTax1799','JMR',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Salix','purpurea',null,'VTax1687',null,'JMR',null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Scorpiurus','muricatus','subvillosus','VTax854','JMR',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Scrophularia','nodosa',null,'VTax2597','JMR',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Sedum','rubens',null,'VTax315','JMR',null,null,null);
+
+	
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Genista','scorpius','scorpius','VTax574','JXX',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Genista','triflora',null,'VTax582','JXX',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Luzula','forsteri',null,'VTax3687','JXX',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Hirschfeldia','incana',null,'VTax1031','JXX',null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Iberis','sempervirens',null,'VTax1142','JXX',null,null,null);
+
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Trifolium','rubens',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Trifolium','scabrum',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Viburnum','tinus',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Pedicularis','pyrenaica','lasiocalyx',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Pedicularis','pyrenaica','pyerenaica',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Petasites','pyrenaicus',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Phyteuma','hemisphaericum',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Sideritis','hirsuta','hirsuta',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Stachys','arvensis',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Lavandula','stoechas','stoechas',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Mentha','aquatica',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Salvia','pratensis','pratensis',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Salvia','verbenaca','verbenaca',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Anthemis','arvensis',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Arnica','montana','montana',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Artemisia','campestris','glutinosa',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Aster','pilosus',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Aster','alpinus',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Bellis','annua','annua',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Bidens','subalternans',null,null,null,null,null,null);
+
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Senecio','adonidifolius',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Reichardia','picroides',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Hypochoeris','glabra',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Crepis','vesicaria','taraxacifolia',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Crepis','sancta',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Cichorium','intybus',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Urospermum','dalechampii',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Crepis','setosa',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Lapsana','communis',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Leontodon','hispidus',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Picris','echioides',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Tragopogon','porrifolius','australis',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Tragopogon','porrifolius',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Sonchus','tenerrimus',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Senecio','vulgaris',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Senecio','lividus',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Senecio','gallicus',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Allium','roseum',null,null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Teucrium','pyrenaicum','guarense',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Teucrium','scorodina','scorodina',null,null,null,null,null);
+insert into plantas (gen,epit,subsp,taxon,taggerK,revK,ftags,frev) values ('Antirrhinum','orontium',null,null,null,null,null,null);
+

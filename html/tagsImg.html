@@ -62,11 +62,9 @@
 		function formAction(frmID){
 			var tags = [];
 			var inputs = document.getElementById(frmID).elements["TAG"];
-			console.log(inputs.length);
 			for (i = 0; i < inputs.length; i++) {
 				var input = inputs[i];
 				if (input.checked) {
-					console.log(input.value);
 					tags.push(input.value);
 				}
 			}
@@ -91,14 +89,14 @@
 			<form class="form" >
 				<div class="row g-2">
   			<div class="col-md-1">
-				<select  class="form-control" >
-					<option v-for="item in taggersLst" @click="setTaggerK(item.cod)" v-bind:value="item.id">
+				<select  class="form-control" v-model="taggerK">
+					<option v-for="item in taggersLst" @click="setTaggerK(item.cod)" v-bind:value="item.cod">
 							{{ item.tag }}
 					</option>
 				</select>
 			</div>
  			<div class="col-md-3">
-				<select  class="form-control" >
+				<select  class="form-control">
 					<option v-for="item in plantasLst" v-bind:value="item.id" @click="setTaxon(item.taxon)">
 							{{ item.gen }} {{item.epit}} {{item.subsp}}
 					</option>
@@ -106,14 +104,14 @@
 			</div>
 
  			<div class="col-md-2">
-				<select  class="form-control" >
+				<select  class="form-control">
 					<option v-for="item in fotosLst" v-bind:value="item.id" @click="cargaFoto(item)">
 							{{item.taxon}}.{{item.ejemp}}.{{item.num}}.{{item.formato}}
 					</option>
 				</select>
 			</div>
- 			<div class="col-md-2">
-				<select  class="form-control" >
+ 			<div class="col-md-2" >
+				<select  class="form-control" v-model="tagsFoto.categ" >
 					<option v-for="item in categLst" v-bind:value="item" @click="setCateg(item)">
 							{{item}}
 					</option>
@@ -137,7 +135,7 @@
 
 
     <div class="row" style="margin-top:20px">
-    	<div class="col-md-2">
+    	<div class="col-md-3">
  		<div class="panel-group" id="accordion">
 
 			<div class="panel panel-default">
@@ -150,7 +148,8 @@
 					<div class="panel-body">
 						<form id="TT" method="post" action="javascript:formAction('TT')">
 						<ul>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="TTR" checked > Tija/Tronc</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="TTR" checked > TIJA/TRONC</li>
+							<li><input type="checkbox" name="TAG" value="ttTTR"> Tija</li>
 							<li><input type="checkbox" name="TAG" value="ttALA"> Ala</li>
 							<li><input type="checkbox" name="TAG" value="ttCLA"> Cladodi</li>
 							<li><input type="checkbox" name="TAG" value="ttGEM"> Gemma</li>
@@ -182,9 +181,12 @@
 					<div class="panel-body">
 						<form id="FU" method="post" action="javascript:formAction('FU')">
 						<ul>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="FUL" checked> Fulla</li>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="FOL"> Folíol</li>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="FRO"> Fronda</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="FUL" checked> FULLA</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="FOL"> FOLÍOL</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="FRO"> FRONDA</li>
+							<li><input type="checkbox" name="TAG" value="fuFUL"> Fulla</li>
+							<li><input type="checkbox" name="TAG" value="fuFOL"> Foliol</li>
+							<li><input type="checkbox" name="TAG" value="fuFRO"> Fronda</li>
 							<li><input type="checkbox" name="TAG" value="fuBEI"> Beina</li>
 							<li><input type="checkbox" name="TAG" value="fuBUL"> Bulbil</li>
 							<li><input type="checkbox" name="TAG" value="fuCOT"> Cotilèdon</li>
@@ -232,8 +234,12 @@
 					<div class="panel-body">
 						<form id="FL" method="post" action="javascript:formAction('FL')">
 						<ul>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="FLO" checked> Flor</li>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="INF"> Inflorescéncia</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="FLO" checked> FLOR</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="INF"> INFLORESCÉNCIA</li>
+							<li><input type="checkbox" name="TAG" value="flFLO"> Flor</li>
+							<li><input type="checkbox" name="TAG" value="flINF"> Inflorescéncia</li>
+							<li><input type="checkbox" name="TAG" value="flBRA"> Bràctees/Bractèoles</li>
+							<li><input type="checkbox" name="TAG" value="flBUL"> Bulbil</li>
 							<li><input type="checkbox" name="TAG" value="flBRA"> Bràctees/Bractèoles</li>
 							<li><input type="checkbox" name="TAG" value="flBUL"> Bulbil</li>
 							<li><input type="checkbox" name="TAG" value="flCAL"> Calicle</li>
@@ -298,9 +304,12 @@
 					<div class="panel-body">
 						<form id="FR" method="post" action="javascript:formAction('FR')">
 						<ul>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="FRU" checked> Fruit</li>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="INF"> Infrutescència</li>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="LLA"> Llavor</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="FRU" checked> FRUIT</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="INF"> INFRUTESCÈNCIA</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="LLA"> LLAVOR</li>
+							<li><input type="checkbox" name="TAG" value="frFRU"> Fruit</li>
+							<li><input type="checkbox" name="TAG" value="frINF"> Infrutescència</li>
+							<li><input type="checkbox" name="TAG" value="frLLA"> Llavor</li>
 							<li><input type="checkbox" name="TAG" value="frALA"> Ala</li>
 							<li><input type="checkbox" name="TAG" value="frBEC"> Bec</li>
 							<li><input type="checkbox" name="TAG" value="frCAL"> Calze</li>
@@ -330,7 +339,8 @@
 					<div class="panel-body">
 						<form id="SU" method="post" action="javascript:formAction('SU')">
 						<ul>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="SUB" checked> Subterrani</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="SUB" checked> SUBTERRANI</li>
+							<li><input type="checkbox" name="TAG" value="suSUB"> Subterrani</li>
 							<li><input type="checkbox" name="TAG" value="suBUL"> Bulb</li>
 							<li><input type="checkbox" name="TAG" value="suBUl"> Bulbil</li>
 							<li><input type="checkbox" name="TAG" value="suREL"> Rel</li>
@@ -355,7 +365,8 @@
 					<div class="panel-body">
 						<form id="PO" method="post" action="javascript:formAction('PO')">
 						<ul>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="POR" checked > Port</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="POR" checked > PORT</li>
+							<li><input type="checkbox" name="TAG" value="poPOR"> Port</li>
 							<li><input type="checkbox" name="TAG" value="poPLA"> Plántula</li>
 							<li><input type="checkbox" name="TAG" value="poBAS"> Base Port</li>
 							<li><input type="checkbox" name="TAG" value="poAPE"> Àpex port</li>
@@ -377,7 +388,8 @@
 					<div class="panel-body">
 						<form id="HA" method="post" action="javascript:formAction('HA')">
 						<ul>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="HAB" checked > Hàbitat</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="HAB" checked > HÀBITAT</li>
+							<li><input type="checkbox" name="TAG" value="haHAB"> Hàbitat</li>
 							<li><input type="checkbox" name="TAG" value="haPLA"> Planta suport</li>
 						</ul>
 						<input type="submit" value="Anotar">
@@ -396,7 +408,7 @@
 					<div class="panel-body">
 						<form id="AL" method="post" action="javascript:formAction('AL')">
 						<ul>
-							<li class="subcat"><input type="radio" name="SUBCAT" value="ALT" checked > Altres</li>
+							<li class="subcat"><input type="radio" name="SUBCAT" value="ALT" checked > ALTRES</li>
 							<li><input type="checkbox" name="TAG" value="alEST"> Estròbil</li>
 							<li><input type="checkbox" name="TAG" value="alESP"> Esporangis</li>
 							<li><input type="checkbox" name="TAG" value="alESp"> Esporangiòfor</li>
