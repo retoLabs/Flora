@@ -41,7 +41,7 @@ function ecoTaggersList(xhr){
 	filas.map(function(fila){
 		lista.push(fila);
 	})
-	console.log(lista);
+//	console.log(lista);
 	vgApp.appTagsFC.updtTaggersLst(lista);
 	getPlantasList();
 
@@ -60,7 +60,7 @@ function ecoPlantasList(xhr){
 		lista.push(fila);
 	})
 //	console.log(lista);
-	vgApp.appTagsFC.updtplantasLst(lista);
+	vgApp.appTagsFC.updtPlantasLst(lista);
 }
 
 function getPlantasList(){
@@ -133,6 +133,7 @@ function initAppTags(){
 				taggersLst : [],
 				taggerK: 'JMR',
 				plantasLst: [],
+				plantaAct : null,
 				taxon : null,
 				fotosLst: [],
 				foto : null,
@@ -201,7 +202,7 @@ function initAppTags(){
 			updtTaggersLst : function (taggersLst){
 				this.taggersLst = taggersLst;
 			},
-			updtplantasLst : function (plantasLst){
+			updtPlantasLst : function (plantasLst){
 				this.plantasLst = plantasLst;
 			},
 			updtFotosLst : function (fotosLst){
@@ -209,7 +210,6 @@ function initAppTags(){
 			},
 			setTaxon : function (t){
 				this.taxon = t;
-				console.log(t);
 				getFotosList(t);
 			},
 			updtFotos : function(fotos){
@@ -249,6 +249,7 @@ function initAppTags(){
 				this.tagsFoto.categ = tags.categ;
 				this.tagsFoto.zoom = tags.zoom;
 				this.tagsFoto.cntxt = tags.cntxt;
+				utils.r$('strTags').innerHTML = tags.tags;
 			}
 		}
 	})

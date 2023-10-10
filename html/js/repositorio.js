@@ -1,3 +1,4 @@
+
 import {vgApp,goPag}    from '/flora/js/flora_VGlob.js'
 
 import {floraList,faunaList,hortaList,frutaList,arvenseList} from '/flora/js/repositorioSrc.js'
@@ -15,8 +16,16 @@ window.arvenseList = arvenseList;
 window.setWeb4info = src.setWeb4info;
 window.showInfoEspecie = src.showInfoEspecie;
 
-
+async function loadPlantas() {
+  const response = await fetch('./json/misPlantas.json');
+  const plantas = await response.json();
+  plantas.lista.map(function(planta){
+  	console.log(planta.nom);
+  })
+//  console.log(plantas); 
+}
 function sesionRepositorioOK(){
+//	loadPlantas();
 	src.initAppRepo();
 	src.setWeb4info('WIKI_ES');
 	src.getEspeciesList('FLORA');
